@@ -1,0 +1,139 @@
+
+/* ─── FINAL SECTION ─── */
+.final-section {
+  margin-bottom: 50px;
+  text-align: center;
+  animation: fadeInUp 1s ease both;
+}
+
+.final-hearts-row {
+  font-size: 2rem;
+  letter-spacing: 12px;
+  margin-bottom: 14px;
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.15); }
+}
+
+.final-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff6b9d, #c44dff, #ffd93d);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s linear infinite;
+  margin-bottom: 28px;
+}
+
+/* ─── VIDEO ─── */
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  overflow: visible;
+  margin-bottom: 36px;
+}
+#memory-video {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background: linear-gradient(#1a1a2e, #1a1a2e) padding-box,
+              linear-gradient(135deg, #ff6b9d, #ffd93d, #c44dff) border-box;
+  box-shadow: 0 0 40px rgba(255,107,157,0.35), 0 0 80px rgba(196,77,255,0.2);
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+.video-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 28px;
+  background: radial-gradient(ellipse, rgba(255,107,157,0.25), transparent 70%);
+  z-index: 1;
+  animation: glowPulse 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* ─── PROPOSAL CARD ─── */
+.proposal-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,107,157,0.3);
+  border-radius: 24px;
+  padding: 36px 32px;
+  backdrop-filter: blur(12px);
+  max-width: 520px;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(255,107,157,0.15);
+}
+
+.proposal-line {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.8;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.proposal-line.line2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+.forever-word {
+  color: #ffd93d;
+  text-shadow: 0 0 20px rgba(255,217,61,0.6);
+  font-size: 1.8rem;
+}
+
+/* ─── BUTTONS ─── */
+.proposal-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.yes-btn {
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6b9d, #c44dff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 6px 20px rgba(255,107,157,0.5);
+}
+.yes-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(255,107,157,0.7);
+}
+
+.maybe-btn {
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.1s;
+  position: relative;
+}
+
+/* ─── RESPONSE TEXT ─── */
+.response-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffd93d;
+  min-height: 36px;
+  text-shadow: 0 0 20px rgba(255,217,61,0.5);
+  animation: fadeInUp 0.5s ease both;
+}

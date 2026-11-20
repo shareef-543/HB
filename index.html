@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>🎂 Happy Birthday Forever!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="elegant.css" />
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- PASSWORD GATE -->
+  <div id="gate" class="gate">
+    <div class="gate-hearts" id="gate-hearts"></div>
+    <div class="gate-ring ring1"></div>
+    <div class="gate-ring ring2"></div>
+    <div class="gate-ring ring3"></div>
+    <div class="gate-inner">
+      <div class="gate-icon-wrap">
+        <div class="gate-icon-ring"></div>
+        <div class="gate-lock-icon">🎂</div>
+      </div>
+      <div class="gate-text-block">
+        <h1 class="gate-heading">A Secret Surprise</h1>
+        <p class="gate-tagline">awaits you on the other side</p>
+        <p class="gate-sub">Enter the password to unlock your gift 🎁</p>
+      </div>
+      <div class="gate-field">
+        <span class="field-icon">🔑</span>
+        <input type="password" id="pw" placeholder="Enter password..." autocomplete="off" />
+        <button id="eye-btn" onclick="toggleEye()">👁</button>
+      </div>
+      <div class="gate-err" id="gate-err"></div>
+      <button class="gate-submit" onclick="unlock()">
+        <span class="btn-text">Open My Surprise</span>
+        <span class="btn-arrow">→</span>
+      </button>
+      <div class="attempt-track" id="attempt-track">
+        <span class="atk" id="a1"></span>
+        <span class="atk" id="a2"></span>
+        <span class="atk" id="a3"></span>
+      </div>
+      <p class="gate-hint">Hint: A special date 📅</p>
+    </div>
+  </div>
+
+  <!-- SLIDES WRAPPER -->
+  <div id="slides" class="slides hidden">
+
+    <!-- Slide 1: Welcome / Cake -->
+    <section class="slide" id="slide-0">
+      <canvas class="confetti-local" id="c0"></canvas>
+      <div class="slide-content center">
+        <div class="cake-anim">
+          <div class="c-candles">
+            <span class="c-candle"><span class="c-flame" id="fl1"></span></span>
+            <span class="c-candle"><span class="c-flame" id="fl2"></span></span>
+            <span class="c-candle"><span class="c-flame" id="fl3"></span></span>
+          </div>
+          <div class="c-tier t1"></div>
+          <div class="c-tier t2"></div>
+          <div class="c-tier t3"></div>
+        </div>
+        <p class="eyebrow">Today is your day</p>
+        <h1 class="hero-title">Happy Birthday</h1>
+        <h2 class="hero-name">Forever</h2>
+        <button class="blow-pill" id="blow-btn" onclick="blowAll()">🌬 Blow the candles</button>
+        <div class="scroll-hint">Swipe or tap → to continue</div>
+        <button class="slide-next-btn" onclick="nextSlide()">Next →</button>
+      </div>
+    </section>
+
+    <!-- Slide 2: Message -->
+    <section class="slide" id="slide-1">
+      <div class="slide-content center">
+        <p class="eyebrow">A message from the heart</p>
+        <div class="letter-card">
+          <div class="letter-deco">💙</div>
+          <p class="letter-text" id="letter-text"></p>
+          <div class="letter-sign">— Your Boy 💙</div>
+        </div>
+        <button class="slide-next-btn" onclick="nextSlide()">Next →</button>
+      </div>
+    </section>
+
+    <!-- Slide 3: Wishes -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content center">
+        <p class="eyebrow">With all my heart</p>
+        <h2 class="section-title">Birthday Wishes</h2>
+        <div class="wishes-row">
+          <div class="w-card" style="--d:0s"><span class="w-ico">🌟</span><p>May all your dreams come true</p></div>
+          <div class="w-card" style="--d:.1s"><span class="w-ico">❤️</span><p>May love find you always</p></div>
+          <div class="w-card" style="--d:.2s"><span class="w-ico">🍀</span><p>May luck never leave your side</p></div>
+          <div class="w-card" style="--d:.3s"><span class="w-ico">🦋</span><p>May you grow beautifully every day</p></div>
+          <div class="w-card" style="--d:.4s"><span class="w-ico">🚀</span><p>May this year take you higher</p></div>
+          <div class="w-card" style="--d:.5s"><span class="w-ico">😊</span><p>May every day bring you a smile</p></div>
+        </div>
+        <button class="slide-next-btn" onclick="nextSlide()">Next →</button>
+      </div>
+    </section>
+
+    <!-- Slide 4: Proposal + Video -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content center">
+        <p class="eyebrow">One last thing...</p>
+        <h2 class="proposal-heading">Be with me until the<br>end of my <em>hayat</em></h2>
+        <div class="video-card">
+          <video id="mem-vid" src="memory.mp4" controls playsinline preload="metadata"></video>
+        </div>
+        <p class="proposal-sub">Will you be my <strong>Forever</strong> girl? 💙</p>
+        <div class="prop-btns">
+          <button class="btn-yes" onclick="sayYes()">💙 Yes, Always</button>
+          <button class="btn-maybe" id="btn-maybe" onmouseover="flee(this)" ontouchstart="flee(this)">Maybe…</button>
+        </div>
+        <p class="yes-resp" id="yes-resp"></p>
+        <button class="slide-next-btn" onclick="nextSlide()" style="margin-top:16px;">Next →</button>
+      </div>
+    </section>
+
+    <!-- Slide 5: Happy Birthday Alagi — BIG FINALE -->
+    <section class="slide" id="slide-4">
+      <canvas class="confetti-local" id="c4"></canvas>
+      <div class="slide-content center">
+        <p class="eyebrow">With all my love</p>
+        <div class="hb-alagi-wrap">
+          <div class="hb-line1">Happy</div>
+          <div class="hb-line2">Birthday</div>
+          <div class="hb-name-big">Alagi 🌟</div>
+          <div class="hb-emoji-row">🎂 🎉 💙 🎊 ✨</div>
+        </div>
+        <p class="hb-forever-tag">— Forever yours 💙</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- NAV ARROWS -->
+  <button class="nav-arr arr-prev" id="arr-prev" onclick="prevSlide()">‹</button>
+  <button class="nav-arr arr-next" id="arr-next" onclick="nextSlide()">›</button>
+
+  <!-- DOT NAV -->
+  <div class="dot-nav" id="dot-nav">
+    <span class="dot-n active" onclick="goTo(0)"></span>
+    <span class="dot-n" onclick="goTo(1)"></span>
+    <span class="dot-n" onclick="goTo(2)"></span>
+    <span class="dot-n" onclick="goTo(3)"></span>
+    <span class="dot-n" onclick="goTo(4)"></span>
+  </div>
+
+  <!-- MUSIC -->
+  <button class="music-fab" id="music-fab" onclick="toggleMusic()" title="Music">♪</button>
+
+  <script src="elegant.js"></script>
+</body>
+</html>
